@@ -159,16 +159,16 @@ export default function AlcoCalc({ darkMode }: AlcoCalcProps) {
           </ToggleButton>
         </ToggleButtonGroup>
       </Box>
-      <Box sx={{ mb: 1 }}>
+      <Box sx={{ mb: 0 }}>
         <Typography sx={{ fontSize: { xs: 16, sm: 18 }, mb: 1, color: colors.text }}>What did you drink?</Typography>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: { xs: 6, sm: 8 } }}>
           {DRINKS.map(drink => (
-            <Box key={drink.name} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Box key={drink.name} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
               <Typography sx={{ width: 80, fontSize: { xs: 15, sm: 18 }, color: colors.text }}>{drink.name}</Typography>
               <IconButton
                 aria-label={`decrease ${drink.name}`}
                 onClick={() => setDrinks(d => ({ ...d, [drink.name]: Math.max(0, d[drink.name] - 1) }))}
-                sx={{ bgcolor: colors.accent, color: colors.text, borderRadius: 2, border: `1px solid ${colors.border}`, width: 80, height: 48, fontSize: 24, display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                sx={{ bgcolor: colors.accent, color: colors.text, borderRadius: 2, border: `1px solid ${colors.border}`, width: 70, height: 42, fontSize: 24, display: 'flex', justifyContent: 'center', alignItems: 'center' }}
               >
                 -
               </IconButton>
@@ -177,7 +177,7 @@ export default function AlcoCalc({ darkMode }: AlcoCalcProps) {
                 size="small"
                 value={drinks[drink.name]}
                 sx={{ 
-                  width: 80, 
+                  width: 80,                   
                   bgcolor: colors.accent, 
                   borderRadius: 2, 
                   border: `1px solid ${colors.border}`,
@@ -191,20 +191,13 @@ export default function AlcoCalc({ darkMode }: AlcoCalcProps) {
                     color: '#fff !important',
                     WebkitTextFillColor: '#fff !important'
                   }
-                }}
-                inputProps={{ 
-                  style: { 
-                    textAlign: 'center', 
-                    color: '#fff',
-                    fontSize: 18 
-                  } 
-                }}
+                }}              
                 disabled
               />
               <IconButton
                 aria-label={`increase ${drink.name}`}
                 onClick={() => setDrinks(d => ({ ...d, [drink.name]: d[drink.name] + 1 }))}
-                sx={{ bgcolor: colors.accent, color: colors.text, borderRadius: 2, border: `1px solid ${colors.border}`, width: 80, height: 48, fontSize: 24, display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                sx={{ bgcolor: colors.accent, color: colors.text, borderRadius: 2, border: `1px solid ${colors.border}`, width: 70, height: 42, fontSize: 24, display: 'flex', justifyContent: 'center', alignItems: 'center' }}
               >
                 +
               </IconButton>
@@ -222,6 +215,21 @@ export default function AlcoCalc({ darkMode }: AlcoCalcProps) {
         <Typography sx={{ fontSize: { xs: 13, sm: 15 }, color: colors.text, opacity: 0.7 }}>
           (Estimation only. Always drive safely!)
         </Typography>
+        <IconButton
+          aria-label="clear all"
+          onClick={() => {
+            setWeight(70);
+            setGender('male');
+            setDrinks({
+              Beer: 0,
+              Wine: 0,
+              Shot: 0,
+            });            
+          }}
+          sx={{ mt: 2, bgcolor: colors.accent, color: colors.text, borderRadius: 2, border: `1px solid ${colors.border}`, width: 120, height: 48, fontSize: 16 }}
+        >
+          Clear All
+        </IconButton>
       </Box>
     </Box>
   );
