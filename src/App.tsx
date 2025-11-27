@@ -31,7 +31,7 @@ function App() {
       <AppBar position="static" sx={{ bgcolor: colors.appBar, boxShadow: 'none', borderBottom: `1px solid ${colors.border}` }}>
         <Toolbar sx={{ px: { xs: 1, sm: 3 }, minHeight: { xs: 56, sm: 64 } }}>
           <Typography variant="h5" sx={{ flexGrow: 1, fontWeight: 700, letterSpacing: 1, fontSize: { xs: 22, sm: 32 }, color: colors.highlight }}>
-            ReadyToDrive
+            Drive
           </Typography>
           <IconButton color="inherit" onClick={() => setDarkMode(m => !m)} sx={{ ml: 1, color: colors.iconColor }}>
             {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
