@@ -191,7 +191,7 @@ export default function AlcoCalc({ darkMode }: AlcoCalcProps) {
                     color: '#fff !important',
                     WebkitTextFillColor: '#fff !important'
                   }
-                }}              
+                }}
                 disabled
               />
               <IconButton
